@@ -5,6 +5,8 @@ FROM eclipse-temurin:17-jdk AS builder
 WORKDIR /build
 # Copy everything from your project folder (host) to /build (container)
 COPY . .
+# Make mvnw executable
+RUN chmod +x mvnw
 # Run Maven wrapper to build the jar file (skip tests to save time)
 RUN ./mvnw clean package -DskipTests
 

@@ -18,8 +18,10 @@ COPY ./src/main/resources/application-prod.properties /app/config/application-pr
 COPY ./.env /app
 
 # Define environment variables for Spring Boot
-ENV SPRING_CONFIG_LOCATION=/app/config/application-prod.properties  # Tell Spring where to load config file from
-ENV SPRING_PROFILES_ACTIVE=prod                                    # Run Spring Boot in 'prod' profile
+   # Tell Spring where to load config file from
+ENV SPRING_CONFIG_LOCATION=/app/config/application-prod.properties
+   # Run Spring Boot in 'prod' profile
+ENV SPRING_PROFILES_ACTIVE=prod
 
 # Define container entrypoint (how the app runs when container starts)
 ENTRYPOINT ["java", "-jar", "app.jar"]
